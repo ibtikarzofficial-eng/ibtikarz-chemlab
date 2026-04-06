@@ -409,3 +409,76 @@ body {
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
   }
 }
+
+/* RESPONSIVE DESIGN FOR MOBILE */
+@media (max-width: 850px) {
+  .top-nav {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .element-selector {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    justify-content: flex-start;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .element-selector::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .element-selector button {
+    flex-shrink: 0;
+  }
+
+  .mission-board {
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 400px;
+    padding: 1rem;
+  }
+
+  .configurator {
+    top: auto;
+    bottom: 1rem;
+    right: 50%;
+    transform: translateX(50%);
+    width: calc(100% - 2rem);
+    max-width: 400px;
+    padding: 1rem;
+  }
+
+  .info-panel {
+    bottom: auto;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    min-width: unset;
+    width: calc(100% - 2rem);
+    max-width: 400px;
+    padding: 1.5rem;
+  }
+
+  .info-panel.visible {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-height: 700px) and (max-width: 850px) {
+  /* On very short mobile screens, make sure UI components can scroll internally or scale down */
+  .configurator {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+  
+  .mission-board {
+    max-height: 30vh;
+    overflow-y: auto;
+  }
+}
