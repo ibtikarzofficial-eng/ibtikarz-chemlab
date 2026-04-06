@@ -412,73 +412,139 @@ body {
 
 /* RESPONSIVE DESIGN FOR MOBILE */
 @media (max-width: 850px) {
+  /* Top Nav */
+  .logo { font-size: 16px; }
   .top-nav {
-    padding: 1rem;
+    padding: 10px;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
+    background: rgba(2, 6, 23, 0.85); /* Ensure readability */
   }
 
   .element-selector {
     width: 100%;
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
     justify-content: flex-start;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .element-selector::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
   }
 
   .element-selector button {
     flex-shrink: 0;
+    padding: 6px 10px;
+    font-size: 12px;
+    gap: 4px;
   }
 
+  /* Mission Board - Pinned near top */
   .mission-board {
-    top: 110px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 2rem);
+    top: 85px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 95% !important;
     max-width: 400px;
-    padding: 1rem;
+    padding: 12px !important;
+    z-index: 5;
   }
 
+  .mission-board h3 { font-size: 12px; margin-bottom: 8px; }
+  .mission-board p { font-size: 12px; margin-bottom: 0; }
+  .mission-board.selection button { padding: 8px; font-size: 13px; margin-bottom: 6px; }
+
+  /* Configurator - Pinned to bottom, horizontal layout for compactness */
   .configurator {
-    top: auto;
-    bottom: 1rem;
-    right: 50%;
-    transform: translateX(50%);
-    width: calc(100% - 2rem);
+    top: auto !important;
+    bottom: 10px !important;
+    right: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 95% !important;
     max-width: 400px;
-    padding: 1rem;
+    padding: 12px !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 5;
   }
 
+  .configurator h3 {
+    width: 100%;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  .configurator .input-group {
+    width: 31%;
+    margin-bottom: 8px;
+  }
+
+  .configurator .input-group label {
+    font-size: 9px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .configurator .input-group input {
+    padding: 6px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .configurator button {
+    width: 100%;
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .feedback-panel {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+  }
+  
+  .feedback-symbol { font-size: 20px; }
+  .feedback-panel h4 { font-size: 12px; }
+  .feedback-panel p { font-size: 11px; line-height: 1.2; }
+  .element-facts { margin-top: 8px; padding-top: 8px; gap: 4px; }
+  .fact-item { font-size: 10px; }
+
+  /* Info panel - perfectly centered */
   .info-panel {
-    bottom: auto;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    min-width: unset;
-    width: calc(100% - 2rem);
-    max-width: 400px;
-    padding: 1.5rem;
+    bottom: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    min-width: unset !important;
+    width: 90% !important;
+    max-width: 350px;
+    padding: 1rem !important;
+    z-index: 20;
   }
 
   .info-panel.visible {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1) !important;
   }
 }
 
-@media (max-height: 700px) and (max-width: 850px) {
-  /* On very short mobile screens, make sure UI components can scroll internally or scale down */
+@media (max-height: 650px) and (max-width: 850px) {
+  /* Extreme short screens: scroll UI blocks to avoid overlap */
   .configurator {
-    max-height: 40vh;
+    bottom: 0 !important;
+    border-radius: 12px 12px 0 0;
+    max-height: 45vh;
     overflow-y: auto;
   }
-  
   .mission-board {
-    max-height: 30vh;
+    top: 80px !important;
+    max-height: 35vh;
     overflow-y: auto;
   }
 }
